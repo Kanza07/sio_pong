@@ -1,2 +1,2 @@
 # sio_pong
-Repository of our Pong project for the next industrial week.
+Repository for our Pong project for the next industrial week.

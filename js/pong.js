@@ -16,9 +16,7 @@ window.onload = function() {
     canvas.width = 1792;
 	canvas.height = 960;
 
-	var countdownInterval = setInterval(countDown,1000);
-
-    //var myInterval = setInterval(animate, 1000/40);
+    var myInterval = setInterval(animate, 1000/40);
 
     //On défini quelques variables
     var diamBall = 20;
@@ -47,21 +45,6 @@ window.onload = function() {
 	addEventListener("keyup", function (e) {
 		delete keysDown[e.keyCode];
 	}, false);
-
-	function countDown() {
-		context.clearRect(0, 0, canvas.width, canvas.height);//Cette fonction permet de réinitialiser notre canvas. Plus rien n'y est affiché.
-
-		context.font = "bold 100px Arial";
-        context.fillStyle = "rgb(255,0,255)";
-        context.fillText(countdown,canvas.width/2,canvas.height/2);
-
-        countdown--;
-        if(countdown < 0){
-        	clearInterval(countdownInterval);
-
-        	var myInterval = setInterval(animate, 1000/40);
-        }
-	}
 
     function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);//Cette fonction permet de réinitialiser notre canvas. Plus rien n'y est affiché.

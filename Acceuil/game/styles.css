@@ -1,0 +1,51 @@
+html{
+	height: 100%;	
+}
+
+body {
+	height: 100%;
+	background: url("background.png") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: 0px;
+	font: BIGMACCA;
+}
+
+canvas {
+	/*height: 360px;
+	width: 640px;*/
+}
+.container{
+	height: 100%;
+	text-align: center;
+}
+
+.home-menu{
+	text-align: center;
+}
+
+.jouer > img {
+	width: 100%;
+}
+
+.main-section{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+.pong-ban{
+	margin-top: 50px;
+	width: 80%;
+}
+
+.rule-opt > img {
+	width: 49%;
+	margin-top: 50px;
+}

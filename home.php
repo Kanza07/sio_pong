@@ -7,6 +7,7 @@
 
 		<title>Pong | Accueil</title>
 		<link href="web/css/styles.css" rel="stylesheet"/>
+		<link href="web/css/responsive.css" rel="stylesheet">
 	</head>
 	<body>
 
@@ -23,7 +24,7 @@
 		</div>
 
 		<div>
-		  	<a href="chargement.html"><img src="web/img/pngs/play.png" id="teta"/></a>
+		  	<a href="loading.php"><img src="web/img/pngs/play.png" id="teta"/></a>
 		</div>
 
 		<!---->

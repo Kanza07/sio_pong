@@ -5,8 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link href="styles.css" rel="stylesheet">
-		<link href="responsive.css" rel="stylesheet">
+		<link href="web/css/game.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container" >
@@ -15,5 +14,5 @@
 			</canvas>
 		</div>
 	</body>
-	<script src="js/pong.js"></script>
+	<script src="web/lib/js/pong.js"></script>
 </html>

@@ -80,35 +80,36 @@ window.onload = function() {
 
         if (posBallX <= 5) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
-            vitesseBallX = (vitesseBallX < 0) ? -10 : 10;
-            vitesseBallY = (vitesseBallY < 0) ? -10 : 10;
+            vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
+            vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
             posBallX = 320;
             posBallY = 180;
             scorePlayB++;
-            if (scorePlayB ==7){
-                diamBall = 0;
-                widthPad = 0;
-                heightPad = 0;
-                vitesseBallX=0;
-                vitesseBallY=0;
-            }
+            
         }
 
         if (posBallX >= 650) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
-            vitesseBallX = (vitesseBallX < 0) ? -10 : 10;
-            vitesseBallY = (vitesseBallY < 0) ? -10 : 10;
+            vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
+            vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
             posBallX = 320;
             posBallY = 180;
             scorePlayA++;
-            if (scorePlayA ==7){
-                diamBall = 0;
-                widthPad = 0;
-                heightPad = 0;
-                vitesseBallX=0;
-                vitesseBallY=0;
-            }
+      
         }
+		if (scorePlayA >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(255,255,255)";
+					context.fillText("LE JOUEUR A A GAGNE",150,100 );
+					clearInterval(myInterval);
+					
+						}
+				
+				if (scorePlayB >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(0,255,0)";
+					context.fillText("LE JOUEUR B A GAGNE",150,100 );
+					clearInterval(myInterval);}
 
         /* On verifie si la balle à toucher le pad du joueur A*/
         if (posBallX <= posPadXA + heightPad + 5) {

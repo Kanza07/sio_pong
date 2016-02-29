@@ -16,7 +16,7 @@ window.onload = function() {
     canvas.width = 640;
     canvas.height = 360;
 
-    var myInterval = setInterval(animate, 1000/40);
+    var decompteInterval = setInterval(decompte, 1000);
 
     /*On défini quelques variables*/
     var diamBall = 10;
@@ -33,6 +33,7 @@ window.onload = function() {
     var vitessePadY = 20;
     var scorePlayA = 0;
     var scorePlayB = 0;
+	var decompte = 3;
 
     /* Handle keyboard controls */
     var keysDown = {};
@@ -45,7 +46,25 @@ window.onload = function() {
         delete keysDown[e.keyCode];
     }, false);
 
-    function animate() {
+    function decompte() {
+			    context.clearRect(0, 0, canvas.width, canvas.height);
+				context.font = "bold 30px Arial";
+		        context.fillStyle = "rgb(255,0,0)";
+		        context.fillText(decompte, canvas.width/2, canvas.height/2);
+				
+				
+				decompte--;
+				if(decompte < 0){
+				   clearInterval(decompteInterval);
+				   
+				   var myInterval = setInterval(animate, 1000/40);
+				}
+				
+				
+			
+			}
+	
+	function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);/*Cette fonction permet de réinitialiser notre canvas. Plus rien n'y est affiché.*/
 
         /*Tracé de la balle*/

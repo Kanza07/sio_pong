@@ -24,7 +24,7 @@
 		</div>
 
 		<div>
-		  	<a href="loading.php"><img src="web/img/pngs/play.png" id="teta"/></a>
+		  	<a href="connection.php"><img src="web/img/pngs/play.png" id="teta"/></a>
 		</div>
 
 		<!---->

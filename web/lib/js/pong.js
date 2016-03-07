@@ -16,7 +16,7 @@ window.onload = function() {
     canvas.width = 640;
     canvas.height = 360;
 
-    var myInterval = setInterval(animate, 1000/40);
+    var decompteInterval = setInterval(decompte, 1000);
 
     /*On défini quelques variables*/
     var diamBall = 10;
@@ -33,6 +33,7 @@ window.onload = function() {
     var vitessePadY = 20;
     var scorePlayA = 0;
     var scorePlayB = 0;
+	var decompte = 3;
 
     /* Handle keyboard controls */
     var keysDown = {};
@@ -45,7 +46,25 @@ window.onload = function() {
         delete keysDown[e.keyCode];
     }, false);
 
-    function animate() {
+    function decompte() {
+			    context.clearRect(0, 0, canvas.width, canvas.height);
+				context.font = "bold 30px Arial";
+		        context.fillStyle = "rgb(255,0,0)";
+		        context.fillText(decompte, canvas.width/2, canvas.height/2);
+				
+				
+				decompte--;
+				if(decompte < 0){
+				   clearInterval(decompteInterval);
+				   
+				   var myInterval = setInterval(animate, 1000/40);
+				}
+				
+				
+			
+			}
+	
+	function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);/*Cette fonction permet de réinitialiser notre canvas. Plus rien n'y est affiché.*/
 
         /*Tracé de la balle*/
@@ -80,35 +99,36 @@ window.onload = function() {
 
         if (posBallX <= 5) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
-            vitesseBallX = (vitesseBallX < 0) ? -10 : 10;
-            vitesseBallY = (vitesseBallY < 0) ? -10 : 10;
+            vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
+            vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
             posBallX = 320;
             posBallY = 180;
             scorePlayB++;
-            if (scorePlayB ==7){
-                diamBall = 0;
-                widthPad = 0;
-                heightPad = 0;
-                vitesseBallX=0;
-                vitesseBallY=0;
-            }
+            
         }
 
         if (posBallX >= 650) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
-            vitesseBallX = (vitesseBallX < 0) ? -10 : 10;
-            vitesseBallY = (vitesseBallY < 0) ? -10 : 10;
+            vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
+            vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
             posBallX = 320;
             posBallY = 180;
             scorePlayA++;
-            if (scorePlayA ==7){
-                diamBall = 0;
-                widthPad = 0;
-                heightPad = 0;
-                vitesseBallX=0;
-                vitesseBallY=0;
-            }
+      
         }
+		if (scorePlayA >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(255,255,255)";
+					context.fillText("LE JOUEUR A A GAGNE",150,100 );
+					clearInterval(myInterval);
+					
+						}
+				
+				if (scorePlayB >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(0,255,0)";
+					context.fillText("LE JOUEUR B A GAGNE",150,100 );
+					clearInterval(myInterval);}
 
         /* On verifie si la balle à toucher le pad du joueur A*/
         if (posBallX <= posPadXA + heightPad + 5) {

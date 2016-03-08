@@ -7,7 +7,7 @@
         
         <title>Pong</title>
 
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="web/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="web/css/styles.css" rel="stylesheet">
 	</head>
     <body> 

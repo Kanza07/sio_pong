@@ -1,8 +1,5 @@
 <?php
 	session_start(); // On démarre la session AVANT toute chose
-
-	echo $_SESSION["player_a"];
-	echo $_SESSION["player_b"];
 ?>
 <!doctype html>
 <html>

@@ -43,6 +43,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 							<input type="submit" class="btn btn-primary"value="Valider"/>
+							<input type="submit" class="btn btn-primary"value="Valider" />
 						</div>
 					</form>
 				</div>
@@ -53,6 +54,7 @@
 				<h2 class="text-center"><font color="White">Identifiez-vous</font></h2>
                 <div class="">
                     <form class="form-signin form-horizontal" role="form" action="http://localhost/sio_pong/src/player_register.php" method="post">
+                    <form class="form-signin form-horizontal" role="form" action="player_register.php" method="post">
                         <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                             <input name="player1" class="form-control input-lg" required="required" type="text" placeholder="player1">
@@ -79,10 +81,10 @@
         </footer>
 		
 		<!-- jQuery -->
-		<script src="jquery/jquery-2.2.0.js"></script>
+		<script src="web/lib/jquery/jquery-2.2.0.js"></script>
 		
 		<!-- JavaScript Bootstrap plugin -->
 		
-		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="web/lib/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -8,11 +8,13 @@
 		<link href="../web/css/game.css" rel="stylesheet">
 	</head>
 	<body>
+		<!-- jQuery -->
+		<script src="../web/lib/jquery/jquery-2.2.0.js"></script>
 		<div class="container" >
 			<canvas id="pong-canvas"> 
 			  Texte alternatif pour les navigateurs ne supportant pas Canvas.
 			</canvas>
 		</div>
-	</body>
-	<script src="../web/lib/js/pong.js"></script>
+		<script src="../web/lib/js/pong.js"></script>
+	</body>	
 </html>

@@ -4,6 +4,7 @@ html{
 
 body {
 	height: 100%;
+	width: 100%;
 	background: url("../img/game/background.png") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -19,6 +20,7 @@ canvas {
 }
 .container{
 	height: 100%;
+	width: 100%;
 	text-align: center;
 }
 

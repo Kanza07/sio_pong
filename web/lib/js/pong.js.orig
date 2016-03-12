@@ -13,10 +13,8 @@ window.onload = function() {
             return;
         }
 
-    /*canvas.width = $(window).width();
-    canvas.height = $(window).height();*/
-    canvas.width = window.outerWidth;
-    canvas.height = window.outerHeight;
+    canvas.width = 640;
+    canvas.height = 360;
 
     /*On défini quelques variables*/
     var diamBall = 10;
@@ -26,7 +24,7 @@ window.onload = function() {
     var posBallY = 30+diamBall/2;
     var posPadXA = 2;
     var posPadYA = 5;
-    var posPadXB = canvas.width-12;
+    var posPadXB = 628;
     var posPadYB = 5;
     var vitesseBallX = 10;
     var vitesseBallY = 10;
@@ -34,6 +32,7 @@ window.onload = function() {
     var scorePlayA = 0;
     var scorePlayB = 0;
 	var decompte = 3;
+    var boolInterval = false;
 
     /* Handle keyboard controls */
     var keysDown = {};
@@ -46,7 +45,7 @@ window.onload = function() {
         delete keysDown[e.keyCode];
     }, false);
 
-    /*var decompteInterval = setInterval(decompte, 1000);
+    var decompteInterval = setInterval(decompte, 1000);
 
     function decompte() {
 	    context.clearRect(0, 0, canvas.width, canvas.height);
@@ -60,9 +59,7 @@ window.onload = function() {
 		   
 		   var gameInterval = setInterval(animate, 1000/40);
 		}	
-	}*/
-
-    var gameInterval = setInterval(animate, 1000/40);
+	}
 
 	function animate() {  
         context.clearRect(0, 0, canvas.width, canvas.height);/*Cette fonction permet de réinitialiser notre canvas. Plus rien n'y est affiché.*/
@@ -86,41 +83,50 @@ window.onload = function() {
         context.fillStyle = "rgb(0,255,0)";
         context.fillText(scorePlayB,320,30);
 
-        if (scorePlayA >= 5) {
-            context.font = "bold 30px Arial";
-            context.fillStyle = "rgb(255,255,255)";
-            context.fillText("LE JOUEUR A A GAGNE",canvas.width/2,canvas.height/2 );
-            clearInterval(gameInterval);    
-        }
-                
-        if (scorePlayB >= 5) {
-            context.font = "bold 30px Arial";
-            context.fillStyle = "rgb(0,255,0)";
-            context.fillText("LE JOUEUR B A GAGNE",canvas.width/2,canvas.height/2 );
-            clearInterval(gameInterval);
-        }
-
         if (posBallX <= 5) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
             vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
             vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
-            posBallX = canvas.width/2;
-            posBallY = canvas.height/2;
+            posBallX = 320;
+            posBallY = 180;
             scorePlayB++;
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 9f7325c61df3239a93cd83a6edec7a99d4a62a91
         }
 
-        if (posBallX >= canvas.width-5) {
+        if (posBallX >= 650) {
             vitesseBallX *= -1;/*On inverse la vitesse de déplacement sur l'axe horizontal.*/
             vitesseBallX = (vitesseBallX < 0) ? -6 : 6;
             vitesseBallY = (vitesseBallY < 0) ? -6 : 6;
-            posBallX = canvas.width/2;
-            posBallY = canvas.height/2;
+            posBallX = 320;
+            posBallY = 180;
             scorePlayA++;
+<<<<<<< HEAD
+            
+            // var decompteInterval = setInterval(decompte, 1000);
         }
 
-        /*if(scorePlayA>=7 || scorePlayB>=7){
+        if(scorePlayA>=7 || scorePlayB>=7){
             clearInterval(gameInterval);
-        }*/
+=======
+      
+>>>>>>> 9f7325c61df3239a93cd83a6edec7a99d4a62a91
+        }
+		if (scorePlayA >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(255,255,255)";
+					context.fillText("LE JOUEUR A A GAGNE",150,100 );
+					clearInterval(myInterval);
+					
+						}
+				
+				if (scorePlayB >= 5) {
+					context.font = "bold 30px Arial";
+					context.fillStyle = "rgb(0,255,0)";
+					context.fillText("LE JOUEUR B A GAGNE",150,100 );
+					clearInterval(myInterval);}
 
         /* On verifie si la balle à toucher le pad du joueur A*/
         if (posBallX <= posPadXA + heightPad + 5) {

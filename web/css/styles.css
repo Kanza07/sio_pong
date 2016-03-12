@@ -15,6 +15,13 @@ body{
 	overflow:hidden;
 }
 
+a:hover{
+	color:#fff;
+}
+a{
+	color:#25EE13;
+}
+
 #alpha{
 	position: absolute;
 	bottom: 80px;

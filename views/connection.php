@@ -1,3 +1,6 @@
+<?php
+	session_start(); // On démarre la session AVANT toute chose
+?>
 <!doctype html>
 <html>
     <head>
@@ -13,7 +16,7 @@
     <body> 
         <div class="container">                    
             <header>  
-			<a><img src="./web/img/pngs/Calque6.png"/></a>					
+			<a><img src="../web/img/pngs/Calque6.png"/></a>					
             </header>
             <section>
             <div class="modal fade" id="inscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

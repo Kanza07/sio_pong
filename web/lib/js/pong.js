@@ -15,8 +15,8 @@ window.onload = function() {
 
     /*canvas.width = $(window).width();
     canvas.height = $(window).height();*/
-    canvas.width = window.outerWidth;
-    canvas.height = window.outerHeight;
+    canvas.width = window.innerWidth - 25;
+    canvas.height = window.innerHeight;
 
     /*On défini quelques variables*/
     var diamBall = 10;
@@ -34,6 +34,13 @@ window.onload = function() {
     var scorePlayA = 0;
     var scorePlayB = 0;
 	var decompte = 3;
+    var player_A = "Guest 1";
+    var player_B = "Guest 2";
+
+    $.get('../src/player_in_session.php',function(data){
+        player_A = data.player_a;
+        player_B = data.player_b;
+    },"json");
 
     /* Handle keyboard controls */
     var keysDown = {};
@@ -81,22 +88,36 @@ window.onload = function() {
 
         context.font = "bold 30px Arial";
         context.fillStyle = "rgb(255,255,255)";
-        context.fillText(scorePlayA,280,30);
+        context.fillText(scorePlayA,canvas.width/2-20,30);
 
         context.fillStyle = "rgb(0,255,0)";
-        context.fillText(scorePlayB,320,30);
+        context.fillText(scorePlayB,canvas.width/2+20,30);
 
         if (scorePlayA >= 5) {
             context.font = "bold 30px Arial";
             context.fillStyle = "rgb(255,255,255)";
-            context.fillText("LE JOUEUR A A GAGNE",canvas.width/2,canvas.height/2 );
+            context.fillText(player_A + " a gagné",canvas.width/2,canvas.height/2 );
+            $.post('../src/end_game_register.php', { 
+                player_a    : player_A, 
+                player_b    : player_B, 
+                winner      : player_A,
+                score_a     : scorePlayA,
+                score_b     : scorePlayB
+            });
             clearInterval(gameInterval);    
         }
                 
         if (scorePlayB >= 5) {
             context.font = "bold 30px Arial";
             context.fillStyle = "rgb(0,255,0)";
-            context.fillText("LE JOUEUR B A GAGNE",canvas.width/2,canvas.height/2 );
+            context.fillText(player_B + " a gagné",canvas.width/2,canvas.height/2 );
+            $.post('../src/end_game_register.php', { 
+                player_a    : player_A, 
+                player_b    : player_B, 
+                winner      : player_B,
+                score_a     : scorePlayA,
+                score_b     : scorePlayB
+            });
             clearInterval(gameInterval);
         }
 

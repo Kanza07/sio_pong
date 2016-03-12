@@ -33,6 +33,5 @@
 		   <label for="test2">Musique</label>
 		</p>
 		<!---->
-
 	</body>
 </html>

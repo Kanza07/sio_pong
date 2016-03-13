@@ -12,8 +12,12 @@
 
 	if($player_A == $winner){
 		$looser = $player_B;
+		$score_win = $score_a;
+		$score_lose = $score_b;
 	} else {
 		$looser = $player_A;
+		$score_win = $score_b;	
+		$score_lose = $score_a;
 	}
 
 	$mysqli = new mysqli("localhost","pong_user",'pong.mdp',"ALPHA_PONG");
@@ -27,39 +31,47 @@
 
 	while ($row = $result_win_nbr->fetch_assoc()) {
 	 	$nbr_win = $row['nbre_victoire'];
-	 	$old_score_a = $row['scorejoueur'];
+	 	$old_score_win = $row['scorejoueur'];
 	 	/*echo $nbr_win;
 	 	echo $old_score_a;*/
     }
 
     while ($row = $result_lose_nbr->fetch_assoc()) {
 	 	$nbr_lose = $row['nbre_defaite'];
-	 	$old_score_b = $row['scorejoueur'];
+	 	$old_score_lose = $row['scorejoueur'];
 		/*echo $nbr_win;
 	 	echo $old_score_a;*/
     }
+
+    if($player_A == $winner){
+		$score_win = $score_a;
+		$score_lose = $score_b;
+	} else {
+		$score_win = $score_b;	
+		$score_lose = $score_a;
+	}
 
 	$sql_upt_win = "UPDATE joueur SET scorejoueur = ?,nbre_victoire = ? WHERE pseudo_j = ?";
 	$sql_upt_lose = "UPDATE joueur SET scorejoueur = ?,nbre_defaite = ? WHERE pseudo_j = ?";
 	
 	if($stmt= $mysqli->prepare($sql_upt_win)){	
 		$nbr_win = $nbr_win + 1;
-		$score_a = $old_score_a + $score_a;
+		$score_win = $old_score_win + $score_win;
 
-		$stmt->bind_param("iis",$score_a,$nbr_win,$winner);
+		$stmt->bind_param("iis",$score_win,$nbr_win,$winner);
 		$stmt->execute();
 		$stmt->close();
 	}
 
 	if($stmt= $mysqli->prepare($sql_upt_lose)){	
 		$nbr_lose = $nbr_lose + 1;
-		$score_b = $old_score_b + $score_b;
+		$score_lose = $old_score_lose + $score_lose;
 
-		$stmt->bind_param("iis",$score_b,$nbr_lose,$looser);
+		$stmt->bind_param("iis",$score_lose,$nbr_lose,$looser);
 		$stmt->execute();
 		$stmt->close();
 	}
 
-	//sleep(3);
+	sleep(3);
 
-	//header("Location: ../web/index.php");
+	header("Location: ../web/index.php");
